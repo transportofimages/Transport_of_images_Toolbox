@@ -49,9 +49,9 @@ If you find the **Transport of images Toolbox** useful in your work, we kindly r
 ```latex
 @article{SeteZur2020,
 	Author = {S\`{e}te, Olivier \and Zur, Jan},
-	Journal = {ArXiv e-prints: xxyyzz},
+	Journal = {ArXiv e-prints: 2011.00079},
 	Title = {{The transport of images method: computing all zeros of harmonic mappings by continuation}},
-	Url = {https://arxiv.org/abs/xxyyzz.pdf},
+	Url = {https://arxiv.org/abs/2011.00079},
 	Year = {2020},
 }
 ```
