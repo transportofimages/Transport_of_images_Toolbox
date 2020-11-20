@@ -44,7 +44,7 @@ For more examples we refer to the m-files ex_*.m.
 
 ## Citing Transport of Images
 
-If you find the **Transport of images Toolbox** useful in your work, we kindly request that you cite the [following preprint](https://arxiv.org/abs/xxyyzz):
+If you find the **Transport of images Toolbox** useful in your work, we kindly request that you cite the [following preprint](https://arxiv.org/abs/2011.00079):
 
 ```latex
 @article{SeteZur2020,
