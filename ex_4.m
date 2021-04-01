@@ -24,11 +24,7 @@ for n = minn:maxn
         %% MPW as f(z) = z - conj(r(z)), n poles, radius r(k)
         fun = mpwfun(n, r(k));
         % Computate critical curves and caustics:
-        tcaus = tic;
         [crit, caus] = critical_curves(fun, caustic_pts);
-        time_caus = toc(tcaus);
-        time_caustics = time_caustics + time_caus;
-        
         [zer,~,~,rays_used,iter] = tiroots(fun, number_of_rays, {crit, caus});
         rays = rays + rays_used;
         newton_iter = newton_iter + iter;
@@ -39,7 +35,7 @@ for n = minn:maxn
     disp(['Number of zeros: ', num2str(numel(zer))]);
     disp(['avg. number of harm. Newton iterations: ', num2str(newton_iter/samples)]);
     disp(['avg. number of restarts: ', num2str(rays/samples - 1)]);
-    disp(['rel. computation time for the caustics: ', num2str(time_caustics/time_transport)]);
+    disp(['computation time: ', num2str(time_transport/samples), ' s']);
 end
 
 % 2. Rhie's function
@@ -66,10 +62,7 @@ for n = minn:maxn
         %% Rhie as f(z) = z - conj(r(z)), n poles, radius r(k), epsilon = 0.1
         fun = rhiefun(n,r(k),epsilon(k));
         % Compute critical curves and caustics:
-        tcaus = tic;
         [crit, caus] = critical_curves(fun, caustic_pts);
-        time_caus = toc(tcaus);
-        time_caustics = time_caustics + time_caus;
         
         [zer,~,~,rays_used,iter] = tiroots(fun, number_of_rays, {crit, caus});
         rays = rays + rays_used;
@@ -81,5 +74,5 @@ for n = minn:maxn
     disp(['Number of zeros: ', num2str(numel(zer))]);
     disp(['avg. number of harm. Newton iterations: ', num2str(newton_iter/samples)]);
     disp(['avg. number of restarts: ', num2str(rays/samples - 1)]);
-    disp(['rel. computation time for the caustics: ', num2str(time_caustics/time_transport)]);
+    disp(['computation time: ', num2str(time_transport/samples), ' s']);
 end
