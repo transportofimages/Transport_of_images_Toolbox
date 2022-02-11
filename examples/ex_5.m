@@ -137,7 +137,7 @@ for n = minn:maxn
     tic
     for k = 1:samples
         %% Rhie as f(z) = z - conj(r(z)), with n, r(k), epsilon(k)
-        fun = rhiefun(n, r(k), epsilon(k));
+        fun = rhiefun_old(n, r(k), epsilon(k));
         [zer,~,~,rays_used,iter] = tiroots(fun, number_of_rays, caustic_pts);
         
         if size(zer) ~= 5*n

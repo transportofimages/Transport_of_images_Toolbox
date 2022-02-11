@@ -64,7 +64,7 @@ epsilon = 0.4;
 rng(1);
 caus_pts = 2^8;
 tic; % time measurement
-fun = rhiefun(n,r,epsilon);
+fun = rhiefun_old(n,r,epsilon);
 [zer_rhie,crit,caus,~] = tiroots(fun, 30, caus_pts);
 time_rhie = toc;
 

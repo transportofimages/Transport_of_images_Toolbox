@@ -26,7 +26,7 @@ disp(['Computation time: ', num2str(time_mpw), ' secs.']);
 n = 25;
 r = 0.9;
 epsilon = 0.4;
-fun = rhiefun(n,r,epsilon);
+fun = rhiefun_old(n,r,epsilon);
 poles = roots(fun.sden);
 
 % tiroots

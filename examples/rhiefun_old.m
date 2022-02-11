@@ -1,4 +1,4 @@
-function fun = rhiefun(n, r, epsilon, eta)
+function fun = rhiefun_old(n, r, epsilon, eta)
 %RHIEFUN   Constructor for Rhie's function.
 %   fun = RHIEFUN(n, r, epsilon) constructs
 %       f(z) = z - conj((1-epsilon)*z^(n-1) / (z^n - r^n) - epsilon/z).

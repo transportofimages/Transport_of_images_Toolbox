@@ -65,7 +65,7 @@ for k = 1:ray_number
     rays_tried = rays_tried + 1;
     
     % check whether the transport along R_phi was succesfull
-    if ( ~isnan(zer) )
+    if ( isempty(zer) || ~any(isnan(zer)) )
         return;
     end
 end

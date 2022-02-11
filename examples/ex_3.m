@@ -9,7 +9,7 @@ ms = 5;
 n = 7;
 r = 0.7;
 epsilon = 0.1;
-fun = rhiefun(n,r,epsilon);
+fun = rhiefun_old(n,r,epsilon);
 
 % applying tiroots
 caus_pts = 2^8;

@@ -66,7 +66,7 @@ tpath = transport_path(fun, crit, caus, [eta, 0]);
 [zer, ~, steps_total, newtoniter2, steps_failed, tsteps_list] = transport_phase(fun, sol, tpath, 1e-6);
 
 %% Final Newton polish
-[zer, newtoniter3] = harmonicNewton(fun.f, fun.dh, fun.dg, zer, 100, 1e-15);
+[zer, newtoniter3] = harmonicNewton(fun.f, fun.dh, fun.dg, zer, 50, 1e-15);
 newtoniter = newtoniter1 + newtoniter2 + sum(newtoniter3);
 
 end

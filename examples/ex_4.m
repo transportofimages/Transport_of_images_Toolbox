@@ -60,7 +60,7 @@ for n = minn:maxn
     tic;
     for k = 1:samples
         %% Rhie as f(z) = z - conj(r(z)), n poles, radius r(k), epsilon = 0.1
-        fun = rhiefun(n,r(k),epsilon(k));
+        fun = rhiefun_old(n,r(k),epsilon(k));
         % Compute critical curves and caustics:
         [crit, caus] = critical_curves(fun, caustic_pts);
         
