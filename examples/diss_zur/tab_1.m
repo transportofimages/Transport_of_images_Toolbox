@@ -3,8 +3,6 @@
 % [Zur, Jan “On the Zeros of Harmonic Mappings: Analysis, Computation and 
 ... Application". PhD thesis. TU Berlin, 2022].
 % 
-% Attention: Chebfun and rootsb are required to run this m-file.
-%
 
 rng(1);
 
