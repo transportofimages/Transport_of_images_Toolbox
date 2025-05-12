@@ -1,5 +1,5 @@
 function [zer, crit, caus, rays_tried, newton_iter] = ...
-    tiroots(fun, ray_number, CC, crit_method)
+    tiroots(fun, ray_number, CC, crit_method, remove_common_factors)
 %TIROOTS   Transport of images method.
 %   zer = TIROOTS(fun) computes all zeros of a harmonic mapping f.
 %   fun is a struct with functions handles as in harmonicRat. If the
@@ -23,6 +23,11 @@ function [zer, crit, caus, rays_tried, newton_iter] = ...
 %   exp(1i*t) with Newton's method for the second complex dilatation.
 %   crit_method = "poly" computes the critical points as roots of a
 %   polynomial.
+%
+%   zer = TIROOTS(fun, ray_number, numpts, crit_method, ...
+%   remove_common_factors) with remove_common_factors = true or false
+%   specifies if common zeros of the numerator and denominator of the
+%   second complex dilatation are to be removed or not.
 %
 %   [zer, crit, caus, rays_tried, newton_iter] = TIROOTS(...)
 %   returns cell arrays with the critical curves (crit), caustics (caus),
@@ -48,7 +53,11 @@ rays_tried = 0;
 %% Critical curves and caustics:
 if ( isnumeric(CC) )
     % Number of points for discretizing the critical arcs:
-    [crit, caus] = critical_curves(fun, CC, crit_method);
+    if ( exist('remove_common_factors') )
+        [crit, caus] = critical_curves(fun, CC, crit_method, remove_common_factors);
+    else
+        [crit, caus] = critical_curves(fun, CC, crit_method);
+    end
 elseif ( iscell(CC) )
     % Critical set and caustics:
     crit = CC{1};
