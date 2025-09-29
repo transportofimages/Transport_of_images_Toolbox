@@ -25,24 +25,34 @@ if ( ( nargin < 4 ) || isempty(tol_remainder) )
     tol_remainder = 1e-12;
 end
 
-% Determine common roots:
-if ( length(p) <= length(q) )
-    r = roots(p);
-    common_roots = ( abs(polyval(q, r)) < tol_common_roots );
-else
-    r = roots(q);
-    common_roots = ( abs(polyval(p, r)) < tol_common_roots );
+% Ensure deg(p) <= deg(q):
+swapped = false;
+if ( length(p) > length(q) )
+    tmp = q;
+    q = p;
+    p = tmp;
+    swapped = true;
 end
-common_factor = poly(r(common_roots));
 
-% Division by common factors:
-[p_quotient, p_remainder] = deconv(p, common_factor);
-[q_quotient, q_remainder] = deconv(q, common_factor);
+r = roots(p);
+for jj = 1:length(r)
+    if ( abs(polyval(q, r(jj))) < tol_common_roots )
+        % Division by common factor [1, -r(jj)]:
+        [p_quotient, p_remainder] = deconv(p, [1, -r(jj)]);
+        [q_quotient, q_remainder] = deconv(q, [1, -r(jj)]);
 
-% Cancel common factors, if remainder is sufficiently small.
-if ( norm([p_remainder, q_remainder], inf) < tol_remainder )
-    p = p_quotient;
-    q = q_quotient;
+        % Cancel common factors, if remainder is sufficiently small:
+        if ( norm([p_remainder, q_remainder], inf) < tol_remainder )
+            p = p_quotient;
+            q = q_quotient;
+        end
+    end
+end
+
+if ( swapped )
+    tmp = q;
+    q = p;
+    p = tmp;
 end
 
 end
