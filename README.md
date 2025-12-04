@@ -20,7 +20,7 @@ To compute all zeros of the harmonic mapping
 
 ![formula](https://render.githubusercontent.com/render/math?math=f(z)=z^2%2B\overline{\left(\frac{2z%2B1}{z^2%2Bz}\right)}%2B2\log|z|,)
 ```math
-f(z) = z^2 + \overline{\left( \frac{2z+1}{z^2 + z} \right) + 2 \log |z|
+f(z) = z^2 + \overline{\left( \frac{2z+1}{z^2 + z} \right)} + 2 \log |z|
 ```
 
 type:
