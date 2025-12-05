@@ -18,7 +18,7 @@ To use our Toolbox in Matlab, you will need to add the **Transport_of_images_Too
 
 To compute all zeros of the harmonic mapping
 ```math
-f(z) = z^2 + \overline{\left(\frac{2z+1}{z^2 + z}\right)} + 2 \log \lvert z \rvert,
+f(z) = z^2 + \text{conj}\left(\frac{2z+1}{z^2 + z}\right) + 2 \log \lvert z \rvert,
 ```
 
 type:
